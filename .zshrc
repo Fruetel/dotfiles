@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/root/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -87,3 +87,6 @@ source $ZSH/oh-my-zsh.sh
 setopt RM_STAR_WAIT
 setopt CORRECT
 
+export TERM=xterm-color
+
+source ~/.zsh_profile

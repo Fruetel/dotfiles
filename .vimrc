@@ -8,8 +8,8 @@ set smarttab
 set backspace=indent,eol,start
 
 set showmatch
+set background=dark
 
-colorscheme evening
 
 " Autocompletion on tab
 set wildmenu
@@ -31,3 +31,5 @@ if has("multi_byte")
     "setglobal bomb
     set fileencodings=ucs-bom,utf-8,latin1
 endif
+
+colorscheme solarized
