@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Thomas Fruetel
+    email = github@fruetel.de
+
+
+[core]
+	excludesfile = /Users/tfruetel/.gitignore
+	editor = vim
+
+[pull]
+  rebase = true
+[push]
+	default = simple
