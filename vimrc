@@ -13,7 +13,15 @@ set colorcolumn=81
 " Autocompletion on tab
 set wildmenu
 
-execute pathogen#infect()
+" execute pathogen#infect()
+
+
+
+" TODO: Finish vundle setup
+" http://tilvim.com/2013/12/28/pathogen-for-vundle.html
+"
+runtime include/vundle.vim
+
 syntax on
 syntax enable
 filetype plugin indent on
@@ -37,7 +45,8 @@ endif
 set term=screen-256color
 set background=dark
 " colorscheme sierra
-colorscheme gotham256
+" colorscheme gotham256
+colorscheme detailed
 
 let mapleader=","
 nmap <leader>gv :vsplit $MYVIMRC<cr>
