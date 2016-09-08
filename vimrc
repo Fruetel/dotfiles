@@ -6,6 +6,8 @@ set shiftwidth=2
 set expandtab
 set smarttab
 set backspace=indent,eol,start
+set number
+set incsearch
 
 set showmatch
 set colorcolumn=81
@@ -13,7 +15,15 @@ set colorcolumn=81
 " Autocompletion on tab
 set wildmenu
 
-execute pathogen#infect()
+" execute pathogen#infect()
+
+
+
+" TODO: Finish vundle setup
+" http://tilvim.com/2013/12/28/pathogen-for-vundle.html
+"
+runtime include/vundle.vim
+
 syntax on
 syntax enable
 filetype plugin indent on
@@ -21,7 +31,6 @@ filetype plugin indent on
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-set number
 autocmd BufWritePre * :%s/\s\+$//e
 
 if has("multi_byte")
@@ -37,7 +46,8 @@ endif
 set term=screen-256color
 set background=dark
 " colorscheme sierra
-colorscheme gotham256
+" colorscheme gotham256
+colorscheme detailed
 
 let mapleader=","
 nmap <leader>gv :vsplit $MYVIMRC<cr>
@@ -46,6 +56,8 @@ nmap <leader>r :source ~/.vimrc<cr>:AirlineRefresh<cr>
 nmap <leader>f :split<cr><C-w>j:Nyancat<cr>
 nmap <leader><leader> :redraw!<cr>
 nmap <leader>R :!rubocop -a<cr>:e!<cr>:redraw!<cr>:AirlineRefresh<cr>
+
+vmap <leader>j :!python -m json.tool<cr>
 
 " Insult me for using cursor keys
 map <left>  :echo "No cursor, you idiot"<cr>
