@@ -56,6 +56,8 @@ nmap <leader>f :split<cr><C-w>j:Nyancat<cr>
 nmap <leader><leader> :redraw!<cr>
 nmap <leader>R :!rubocop -a<cr>:e!<cr>:redraw!<cr>:AirlineRefresh<cr>
 
+vmap <leader>j :!python -m json.tool<cr>
+
 " Insult me for using cursor keys
 map <left>  :echo "No cursor, you idiot"<cr>
 map <right> :echo "No cursor, you idiot"<cr>
