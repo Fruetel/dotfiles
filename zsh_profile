@@ -10,7 +10,6 @@ export "EXENV_ROOT=/usr/local/var/exenv"
 
 export "GOPATH=$HOME/Projekte/go"
 export PATH="$GOPATH/bin:$PATH"
-eval "$(docker-machine env default)"
 bindkey -v
 
 export CLICOLOR=1
