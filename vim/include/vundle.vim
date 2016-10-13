@@ -26,5 +26,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 filetype on
