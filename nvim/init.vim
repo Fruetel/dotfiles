@@ -16,6 +16,7 @@ let test#strategy = "neovim"
 " Using the mouse is helpful when scrolling through backraces
 set mouse=a
 
+" Remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
 
 call plug#begin('~/.vim/plugged')
@@ -32,22 +33,24 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'matze/vim-move'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
 Plug 'elixir-lang/vim-elixir'
-"Plug 'slashmili/alchemist.vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] },
+"Plug 'flowtype/vim-flow'
 
 call plug#end()
 
-let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['markdown', 'haml']
 
 let g:python2_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -114,7 +117,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Run prettier when saving
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 let g:airline_powerline_fonts = 1
+
+let g:flow#autoclose = 1
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
