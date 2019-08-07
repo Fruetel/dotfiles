@@ -55,12 +55,15 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'elixir-lang/vim-elixir'
 Plug 'vim-syntastic/syntastic'
+Plug 'styled-components/vim-styled-components', {'branch': 'main'}
+Plug 'flowtype/vim-flow'
+
+"===== Formatting and Linting ======
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'vue'] },
 Plug 'mhinz/vim-mix-format',
-Plug 'styled-components/vim-styled-components', {'branch': 'main'}
-Plug 'flowtype/vim-flow'
+
 
 call plug#end()
 
