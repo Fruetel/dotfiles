@@ -106,10 +106,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+if executable('rg')
+  " Use ripgrep over Grep
+  set grepprg=rg\ --vimgrep
 endif
 nmap <C-p> :FZF<cr>
 set diffopt+=vertical
