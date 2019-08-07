@@ -21,25 +21,37 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter',
+"===== Airline =====
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+"===== Color Schemes =====
 Plug 'whatyouhide/vim-gotham'
-Plug 'janko-m/vim-test'
 Plug 'nanotech/jellybeans.vim'
+
+Plug 'janko-m/vim-test'
+
+"===== Git Integration =====
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'mileszs/ack.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'matze/vim-move'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
+
+"===== Editing Efficiency =====
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter',
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'matze/vim-move'
+
+"===== Navigation and Search =====
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+"===== Syntax Awareness =====
+Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'elixir-lang/vim-elixir'
 Plug 'vim-syntastic/syntastic'
