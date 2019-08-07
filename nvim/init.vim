@@ -45,8 +45,10 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'vim-syntastic/syntastic'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] },
-"Plug 'flowtype/vim-flow'
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'vue'] },
+Plug 'mhinz/vim-mix-format',
+Plug 'styled-components/vim-styled-components', {'branch': 'main'}
+Plug 'flowtype/vim-flow'
 
 call plug#end()
 
@@ -80,7 +82,7 @@ nmap <leader>R :below 10sp term://'rubocop -a'<cr>:e!<cr>:redraw!<cr>:AirlineRef
 vmap <leader>j :!python -m json.tool<cr>
 
 " Insult me for using cursor keys
-map <left>  :echo "No cursor, you idiot"<cr>
+map <left>  gg=G``
 map <right> :echo "No cursor, you idiot"<cr>
 map <up>    :echo "No cursor, you idiot"<cr>
 map <down>  :echo "No cursor, you idiot"<cr>
@@ -119,7 +121,11 @@ let g:syntastic_check_on_wq = 0
 
 " Run prettier when saving
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
+
+" Run mix format when saving
+let g:mix_format_on_save = 1
+
 let g:airline_powerline_fonts = 1
 
 let g:flow#autoclose = 1

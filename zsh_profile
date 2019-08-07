@@ -1,12 +1,12 @@
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.exenv/bin:$PATH"
-eval "$(exenv init -)"
+export PATH="$HOME/.mix/escripts:$PATH"
 
 export "EXENV_ROOT=/usr/local/var/exenv"
+if which exenv > /dev/null; then eval "$(exenv init -)"; fi
 
 export "GOPATH=$HOME/Projekte/go"
 export PATH="$GOPATH/bin:$PATH"
@@ -16,11 +16,19 @@ export CLICOLOR=1
 
 export TERM=xterm-256color
 
+# This is for iwfm-vagrant
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 alias ber='bundle exec rake'
 alias bec='bundle exec cucumber'
 alias be='bundle exec'
 
+alias dcu='docker-compose up'
+alias dcb='docker-compose build'
+alias dcl='docker-compose logs'
+alias dcp='docker-compose ps'
+
 alias docker-rebuild='docker-compose stop && docker-compose rm -f && docker-compose build'
 alias docker-test='docker-compose run app docker/bin/run test'
-
+# source ~/.bin/tmuxinator.zsh
 chuck_cow
