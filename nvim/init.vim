@@ -16,6 +16,8 @@ let test#strategy = "neovim"
 " Using the mouse is helpful when scrolling through backraces
 set mouse=a
 
+set listchars=eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
+
 " Remove trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -83,7 +85,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 call deoplete#enable()
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" colorscheme gotham
+"colorscheme gotham
 colorscheme jellybeans
 
 let mapleader=","
