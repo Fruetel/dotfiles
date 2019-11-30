@@ -1,32 +1,12 @@
-export NVM_DIR=~/.nvm
-
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.exenv/bin:$PATH"
 export PATH="$HOME/.mix/escripts:$PATH"
 
-export "EXENV_ROOT=/usr/local/var/exenv"
-if which exenv > /dev/null; then eval "$(exenv init -)"; fi
-
-# export "GOPATH=$HOME/Projekte/go"
-
-#export ASDFROOT=$HOME/.asdf
-#export ASDFINSTALLS=$ASDFROOT/installs
-
-#GOV=$(asdf current golang | sed "s/[[:blank:]]*(set by .*)//g")
-#export GO111MODULE=on
-#export GOPATH=$ASDFINSTALLS/golang/$GOV/go
-#export PATH="$GOPATH/bin:$PATH"
-#export GOBIN="$GOPATH/bin"
-
 bindkey -v
 
 export CLICOLOR=1
-
 export TERM=xterm-256color
-
-# This is for iwfm-vagrant
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 alias ber='bundle exec rake'
 alias bec='bundle exec cucumber'
@@ -41,5 +21,4 @@ alias ll='colorls --sort-dirs --report -al'
 
 alias docker-rebuild='docker-compose stop && docker-compose rm -f && docker-compose build'
 alias docker-test='docker-compose run app docker/bin/run test'
-# source ~/.bin/tmuxinator.zsh
 chuck_cow
