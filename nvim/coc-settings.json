@@ -1,0 +1,13 @@
+{
+  "codeLens.enable": true,
+  "solargraph.commandPath": "/Users/tfruetel/.asdf/shims/solargraph",
+  "solargraph.completion": true,
+  "solargraph.formatting": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}

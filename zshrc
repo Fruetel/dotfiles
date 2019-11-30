@@ -89,7 +89,6 @@ setopt CORRECT
 
 export TERM=xterm-color
 
-source ~/.zsh_profile
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -102,5 +101,7 @@ if [ -f '/Users/tfruetel/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then 
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+
+source ~/.zsh_profile
 
 eval "$(lua /usr/local/bin/z.lua --init zsh)"

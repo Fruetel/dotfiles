@@ -8,8 +8,17 @@ export PATH="$HOME/.mix/escripts:$PATH"
 export "EXENV_ROOT=/usr/local/var/exenv"
 if which exenv > /dev/null; then eval "$(exenv init -)"; fi
 
-export "GOPATH=$HOME/Projekte/go"
-export PATH="$GOPATH/bin:$PATH"
+# export "GOPATH=$HOME/Projekte/go"
+
+#export ASDFROOT=$HOME/.asdf
+#export ASDFINSTALLS=$ASDFROOT/installs
+
+#GOV=$(asdf current golang | sed "s/[[:blank:]]*(set by .*)//g")
+#export GO111MODULE=on
+#export GOPATH=$ASDFINSTALLS/golang/$GOV/go
+#export PATH="$GOPATH/bin:$PATH"
+#export GOBIN="$GOPATH/bin"
+
 bindkey -v
 
 export CLICOLOR=1
@@ -27,6 +36,8 @@ alias dcu='docker-compose up'
 alias dcb='docker-compose build'
 alias dcl='docker-compose logs'
 alias dcp='docker-compose ps'
+alias drnginx='docker-compose stop nginx && docker-compose up -d nginx'
+alias ll='colorls --sort-dirs --report -al'
 
 alias docker-rebuild='docker-compose stop && docker-compose rm -f && docker-compose build'
 alias docker-test='docker-compose run app docker/bin/run test'
