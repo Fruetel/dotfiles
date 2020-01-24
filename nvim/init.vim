@@ -9,6 +9,12 @@ set backspace=indent,eol,start
 set number
 set incsearch
 
+set ignorecase " Search case insensitive:
+set smartcase " .. but not when search pattern contains upper case characters
+
+set nobackup
+set shortmess=Ia " Disable startup message
+
 set showmatch
 set colorcolumn=81
 let test#strategy = "neovim"
@@ -30,6 +36,7 @@ Plug 'vim-airline/vim-airline-themes'
 "===== Color Schemes =====
 Plug 'whatyouhide/vim-gotham'
 Plug 'nanotech/jellybeans.vim'
+Plug 'sickill/vim-monokai'
 
 Plug 'janko-m/vim-test'
 
@@ -51,6 +58,7 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-projectionist'
+Plug 'ryanoasis/vim-devicons'
 
 "===== Syntax Awareness =====
 "Plug 'neomake/neomake'
@@ -62,6 +70,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 Plug 'flowtype/vim-flow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
+Plug 'rizzatti/dash.vim'
 
 "===== Formatting and Linting ======
 Plug 'prettier/vim-prettier', {
@@ -76,7 +86,8 @@ call plug#end()
 let g:polyglot_disabled = ['markdown', 'haml']
 
 let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+"let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '~/.asdf/shims/python'
 
 "if !exists('g:deoplete#omni#input_patterns')
   "let g:deoplete#omni#input_patterns = {}
@@ -90,7 +101,8 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "colorscheme gotham
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme monokai
 
 let mapleader=","
 nmap <leader>gv :vsplit $MYVIMRC<cr>
@@ -100,10 +112,8 @@ nmap <leader>f :split<cr><C-w>j:Nyancat<cr>
 nmap <leader><leader> :redraw!<cr>
 nmap <leader>R :below 10sp term://'rubocop -a'<cr>:e!<cr>:redraw!<cr>:AirlineRefresh<cr>
 
-vmap <leader>j :!python -m json.tool<cr>
-
 " Insult me for using cursor keys
-map <left>  gg=G``
+map <left> :echo "No cursor, you idiot"<cr>
 map <right> :echo "No cursor, you idiot"<cr>
 map <up>    :echo "No cursor, you idiot"<cr>
 map <down>  :echo "No cursor, you idiot"<cr>
@@ -119,6 +129,8 @@ if executable('rg')
   " Use ripgrep over Grep
   set grepprg=rg\ --vimgrep
 endif
+set grepformat^=%f:%l:%c:%m
+
 nmap <C-p> :FZF<cr>
 set diffopt+=vertical
 
@@ -133,8 +145,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Run prettier when saving
+command! -nargs=0 CocPrettier :call CocAction('runCommand', 'prettier.formatFile')
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.rb PrettierAsync
+autocmd BufWritePre *.rb,*.rake Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue CocPrettier
 
 " Run mix format when saving
 let g:mix_format_on_save = 1
@@ -220,6 +234,22 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Coc-Snippet stuff:
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]

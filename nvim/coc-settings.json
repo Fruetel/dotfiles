@@ -1,6 +1,13 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "typescript",
+    "rb",
+    "javascript"
+  ],
   "codeLens.enable": true,
-  "solargraph.commandPath": "/Users/tfruetel/.asdf/shims/solargraph",
+  "solargraph.commandPath": "/Users/thomas.fruetel/.asdf/shims/solargraph",
   "solargraph.completion": true,
   "solargraph.formatting": true,
   "languageserver": {

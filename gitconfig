@@ -6,7 +6,7 @@
 
 
 [core]
-  excludesfile = /Users/tfruetel/.gitignore
+  excludesfile = /Users/thomas.fruetel/.gitignore
   editor = nvim
 
 [pull]
