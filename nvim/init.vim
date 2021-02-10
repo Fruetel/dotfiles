@@ -64,7 +64,6 @@ Plug 'ryanoasis/vim-devicons'
 "Plug 'neomake/neomake'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-syntastic/syntastic'
-Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go'
 Plug 'elixir-lang/vim-elixir'
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
@@ -82,8 +81,6 @@ Plug 'mhinz/vim-mix-format',
 
 
 call plug#end()
-
-let g:polyglot_disabled = ['markdown', 'haml']
 
 let g:python2_host_prog = '/usr/local/bin/python'
 "let g:python3_host_prog = '/usr/local/bin/python3'
