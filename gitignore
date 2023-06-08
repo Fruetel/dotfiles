@@ -5,4 +5,5 @@ tags
 .netrwhist
 .projectionist.json
 .projections.json
+.pryrc
 .vim

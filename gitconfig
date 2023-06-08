@@ -3,10 +3,11 @@
 # Please adapt and uncomment the following lines:
   name = Thomas Fruetel
   email = github@fruetel.de
+	signingkey = A614726D31AAC981
 
 
 [core]
-  excludesfile = /Users/thomas.fruetel/.gitignore
+  excludesfile = /Users/tfruetel/.gitignore
   editor = nvim
 
 [pull]
@@ -16,3 +17,7 @@
 [pager]
   diff = colordiff
   show = colordiff
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
